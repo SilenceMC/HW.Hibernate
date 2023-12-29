@@ -1,5 +1,6 @@
 package com.example.hibernate.entity;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -14,12 +15,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "PERSONS")
 public class Person {
 
-    @Id
-    private String name;
-    @Id
-    private String surname;
-    @Id
-    private int age;
+    @EmbeddedId
+    private PersonKey personKey;
 
     private String phoneNumber;
 
