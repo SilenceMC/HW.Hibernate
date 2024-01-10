@@ -18,16 +18,16 @@ public class PersonController {
 
     @GetMapping("/persons/by-city")
     public ResponseEntity<List<Person>> getPersonsByCity(@RequestParam String city) {
-        return ResponseEntity.ok(repository.findByCityOfLiving(city));
+        return ResponseEntity.ok(repository.findByCity(city));
     }
 
     @GetMapping("/persons/by-age")
-    public ResponseEntity<List<Person>> getPersonsByCity(@RequestParam int age) {
+    public ResponseEntity<List<Person>> getPersonsByAge(@RequestParam int age) {
         return ResponseEntity.ok(repository.findByAgeLessThanOrderByAge(age));
     }
 
     @GetMapping("/persons/by-name-and-surname")
-    public ResponseEntity<Optional<Person>> getPersonsByCity(@RequestParam String name, @RequestParam String surname) {
+    public ResponseEntity<Optional<Person>> getPersonsByNameAndSurname(@RequestParam String name, @RequestParam String surname) {
         return ResponseEntity.ok(repository.findByNameAndSurname(name, surname));
     }
 }
