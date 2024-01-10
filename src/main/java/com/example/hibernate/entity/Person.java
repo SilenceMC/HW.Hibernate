@@ -1,22 +1,28 @@
 package com.example.hibernate.entity;
 
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
+@IdClass(PersonId.class)
 @Table(name = "PERSONS")
 public class Person {
 
-    @EmbeddedId
-    private PersonKey personKey;
+    @Id
+    private String name;
+
+    @Id
+    private String surname;
+
+    @Id
+    private int age;
 
     private String phoneNumber;
 
